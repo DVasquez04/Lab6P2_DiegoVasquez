@@ -11,10 +11,9 @@ package lab6p2_diegovasquez;
 public class Portatil extends Consola{
     private String tamaño;
     private int duracionBateria;
-    
     //Flase == no tiene, true == si tiene
     private boolean estuche;
-
+    
     public Portatil() {
         super();
     }

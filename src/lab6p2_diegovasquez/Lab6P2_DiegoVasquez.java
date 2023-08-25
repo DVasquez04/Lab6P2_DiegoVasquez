@@ -4,6 +4,10 @@
  */
 package lab6p2_diegovasquez;
 
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Diego Vasquez
@@ -15,6 +19,7 @@ public class Lab6P2_DiegoVasquez extends javax.swing.JFrame {
      */
     public Lab6P2_DiegoVasquez() {
         initComponents();
+        // this.setExtendedState(MAXIMIZED_BOTH);
     }
 
     /**
@@ -26,21 +31,626 @@ public class Lab6P2_DiegoVasquez extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        bg_tamaño = new javax.swing.ButtonGroup();
+        bg_estuche = new javax.swing.ButtonGroup();
+        jp_BackGround = new javax.swing.JPanel();
+        sp_tableConsolas = new javax.swing.JScrollPane();
+        JT_Consolas = new javax.swing.JTable();
+        tp_CrearConsolas = new javax.swing.JTabbedPane();
+        jp_ConsolasPortatiles = new javax.swing.JPanel();
+        jl_Id = new javax.swing.JLabel();
+        jt_Identificacion = new javax.swing.JTextField();
+        jl_fab = new javax.swing.JLabel();
+        jt_Fabricante = new javax.swing.JTextField();
+        jl_años = new javax.swing.JLabel();
+        jt_Años = new javax.swing.JTextField();
+        jl_precio = new javax.swing.JLabel();
+        jt_Precio = new javax.swing.JTextField();
+        jl_modelo = new javax.swing.JLabel();
+        jt_Modelo = new javax.swing.JTextField();
+        jl_tam = new javax.swing.JLabel();
+        jrb_Pequeño = new javax.swing.JRadioButton();
+        jrb_Mediano = new javax.swing.JRadioButton();
+        jrb_Grande = new javax.swing.JRadioButton();
+        jl_bateria = new javax.swing.JLabel();
+        jt_Bateria = new javax.swing.JTextField();
+        jl_estuche = new javax.swing.JLabel();
+        jrb_siEstuche = new javax.swing.JRadioButton();
+        jrb_noEstuche = new javax.swing.JRadioButton();
+        jb_AgregarPortatil = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jp_ConsolasEstacionarias = new javax.swing.JPanel();
+        jl_numControles = new javax.swing.JLabel();
+        jt_numControles = new javax.swing.JTextField();
+        jl_Almacenamiento = new javax.swing.JLabel();
+        jt_Almacenamiento = new javax.swing.JTextField();
+        jl_tipoConexion = new javax.swing.JLabel();
+        jt_tipoConexion = new javax.swing.JTextField();
+        jb_AgregarEstacionaria = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jl_Id2 = new javax.swing.JLabel();
+        jt_Identificacion2 = new javax.swing.JTextField();
+        jl_fab2 = new javax.swing.JLabel();
+        jt_Fabricante2 = new javax.swing.JTextField();
+        jl_años2 = new javax.swing.JLabel();
+        jt_Años2 = new javax.swing.JTextField();
+        jl_precio2 = new javax.swing.JLabel();
+        jt_Precio2 = new javax.swing.JTextField();
+        jl_modelo2 = new javax.swing.JLabel();
+        jt_Modelo2 = new javax.swing.JTextField();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("GAME STATION");
+
+        jp_BackGround.setBackground(new java.awt.Color(0, 153, 0));
+        jp_BackGround.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        JT_Consolas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Identificacion", "Fabricante", "Años Usada", "Precio", "Modelo", "Tipo consola"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Double.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, true
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        sp_tableConsolas.setViewportView(JT_Consolas);
+
+        jp_BackGround.add(sp_tableConsolas, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 20, 530, -1));
+
+        jp_ConsolasPortatiles.setBackground(new java.awt.Color(0, 204, 255));
+
+        jl_Id.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        jl_Id.setForeground(new java.awt.Color(0, 0, 0));
+        jl_Id.setText("Identificación: ");
+
+        jl_fab.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        jl_fab.setForeground(new java.awt.Color(0, 0, 0));
+        jl_fab.setText("Fabricante:");
+
+        jl_años.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        jl_años.setForeground(new java.awt.Color(0, 0, 0));
+        jl_años.setText("Años Usada:");
+
+        jl_precio.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        jl_precio.setForeground(new java.awt.Color(0, 0, 0));
+        jl_precio.setText("Precio:");
+
+        jl_modelo.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        jl_modelo.setForeground(new java.awt.Color(0, 0, 0));
+        jl_modelo.setText("Modelo:");
+
+        jl_tam.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        jl_tam.setForeground(new java.awt.Color(0, 0, 0));
+        jl_tam.setText("Tamaño de Consola");
+
+        bg_tamaño.add(jrb_Pequeño);
+        jrb_Pequeño.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
+        jrb_Pequeño.setForeground(new java.awt.Color(0, 0, 0));
+        jrb_Pequeño.setText("Pequeño");
+
+        bg_tamaño.add(jrb_Mediano);
+        jrb_Mediano.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
+        jrb_Mediano.setForeground(new java.awt.Color(0, 0, 0));
+        jrb_Mediano.setText("Mediano");
+
+        bg_tamaño.add(jrb_Grande);
+        jrb_Grande.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
+        jrb_Grande.setForeground(new java.awt.Color(0, 0, 0));
+        jrb_Grande.setText("Grande");
+
+        jl_bateria.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        jl_bateria.setForeground(new java.awt.Color(0, 0, 0));
+        jl_bateria.setText("Duracion de Bateria:");
+
+        jl_estuche.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        jl_estuche.setForeground(new java.awt.Color(0, 0, 0));
+        jl_estuche.setText("Con Estuche: ");
+
+        bg_estuche.add(jrb_siEstuche);
+        jrb_siEstuche.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
+        jrb_siEstuche.setForeground(new java.awt.Color(0, 0, 0));
+        jrb_siEstuche.setText("Si");
+
+        bg_estuche.add(jrb_noEstuche);
+        jrb_noEstuche.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
+        jrb_noEstuche.setForeground(new java.awt.Color(0, 0, 0));
+        jrb_noEstuche.setText("No");
+
+        jb_AgregarPortatil.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        jb_AgregarPortatil.setForeground(new java.awt.Color(0, 0, 0));
+        jb_AgregarPortatil.setText("¡AGREGAR!");
+        jb_AgregarPortatil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_AgregarPortatilActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("Crear Consola Portatil");
+
+        javax.swing.GroupLayout jp_ConsolasPortatilesLayout = new javax.swing.GroupLayout(jp_ConsolasPortatiles);
+        jp_ConsolasPortatiles.setLayout(jp_ConsolasPortatilesLayout);
+        jp_ConsolasPortatilesLayout.setHorizontalGroup(
+            jp_ConsolasPortatilesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_ConsolasPortatilesLayout.createSequentialGroup()
+                .addGroup(jp_ConsolasPortatilesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jp_ConsolasPortatilesLayout.createSequentialGroup()
+                        .addGap(131, 131, 131)
+                        .addComponent(jl_tam))
+                    .addGroup(jp_ConsolasPortatilesLayout.createSequentialGroup()
+                        .addGap(89, 89, 89)
+                        .addComponent(jl_estuche)
+                        .addGap(18, 18, 18)
+                        .addComponent(jrb_siEstuche, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jrb_noEstuche, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jp_ConsolasPortatilesLayout.createSequentialGroup()
+                        .addGap(117, 117, 117)
+                        .addComponent(jb_AgregarPortatil, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jp_ConsolasPortatilesLayout.createSequentialGroup()
+                        .addGap(77, 77, 77)
+                        .addGroup(jp_ConsolasPortatilesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(jp_ConsolasPortatilesLayout.createSequentialGroup()
+                                .addComponent(jl_modelo)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jt_Modelo, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jp_ConsolasPortatilesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(jp_ConsolasPortatilesLayout.createSequentialGroup()
+                                    .addComponent(jl_precio)
+                                    .addGap(71, 71, 71)
+                                    .addComponent(jt_Precio, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jp_ConsolasPortatilesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(jp_ConsolasPortatilesLayout.createSequentialGroup()
+                                        .addComponent(jl_años)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jt_Años, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_ConsolasPortatilesLayout.createSequentialGroup()
+                                        .addComponent(jl_fab)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jt_Fabricante, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jp_ConsolasPortatilesLayout.createSequentialGroup()
+                                        .addComponent(jl_Id)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jt_Identificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                    .addGroup(jp_ConsolasPortatilesLayout.createSequentialGroup()
+                        .addGap(96, 96, 96)
+                        .addComponent(jLabel1))
+                    .addGroup(jp_ConsolasPortatilesLayout.createSequentialGroup()
+                        .addGap(49, 49, 49)
+                        .addGroup(jp_ConsolasPortatilesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jp_ConsolasPortatilesLayout.createSequentialGroup()
+                                .addComponent(jrb_Pequeño, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jrb_Mediano, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jrb_Grande, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jp_ConsolasPortatilesLayout.createSequentialGroup()
+                                .addComponent(jl_bateria)
+                                .addGap(33, 33, 33)
+                                .addComponent(jt_Bateria, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(78, Short.MAX_VALUE))
+        );
+        jp_ConsolasPortatilesLayout.setVerticalGroup(
+            jp_ConsolasPortatilesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_ConsolasPortatilesLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jp_ConsolasPortatilesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jl_Id, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jt_Identificacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jp_ConsolasPortatilesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jl_fab, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jt_Fabricante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jp_ConsolasPortatilesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jl_años, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jt_Años, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jp_ConsolasPortatilesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jl_precio, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jt_Precio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jp_ConsolasPortatilesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jl_modelo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jt_Modelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11)
+                .addComponent(jl_tam, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jp_ConsolasPortatilesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jrb_Pequeño)
+                    .addComponent(jrb_Mediano)
+                    .addComponent(jrb_Grande))
+                .addGap(18, 18, 18)
+                .addGroup(jp_ConsolasPortatilesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jl_bateria, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jt_Bateria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jp_ConsolasPortatilesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jl_estuche, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jrb_siEstuche)
+                    .addComponent(jrb_noEstuche))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jb_AgregarPortatil, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+                .addGap(18, 18, 18))
+        );
+
+        tp_CrearConsolas.addTab("Consola Portatil", jp_ConsolasPortatiles);
+
+        jp_ConsolasEstacionarias.setBackground(new java.awt.Color(0, 204, 255));
+
+        jl_numControles.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        jl_numControles.setForeground(new java.awt.Color(0, 0, 0));
+        jl_numControles.setText("Numero Controles:");
+
+        jl_Almacenamiento.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        jl_Almacenamiento.setForeground(new java.awt.Color(0, 0, 0));
+        jl_Almacenamiento.setText("Almacenamiento:");
+
+        jl_tipoConexion.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        jl_tipoConexion.setForeground(new java.awt.Color(0, 0, 0));
+        jl_tipoConexion.setText("Tipo Conexion");
+
+        jb_AgregarEstacionaria.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        jb_AgregarEstacionaria.setForeground(new java.awt.Color(0, 0, 0));
+        jb_AgregarEstacionaria.setText("¡AGREGAR!");
+        jb_AgregarEstacionaria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_AgregarEstacionariaActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("Crear Consola Estacionaria");
+
+        jl_Id2.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        jl_Id2.setForeground(new java.awt.Color(0, 0, 0));
+        jl_Id2.setText("Identificación: ");
+
+        jl_fab2.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        jl_fab2.setForeground(new java.awt.Color(0, 0, 0));
+        jl_fab2.setText("Fabricante:");
+
+        jl_años2.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        jl_años2.setForeground(new java.awt.Color(0, 0, 0));
+        jl_años2.setText("Años Usada:");
+
+        jl_precio2.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        jl_precio2.setForeground(new java.awt.Color(0, 0, 0));
+        jl_precio2.setText("Precio:");
+
+        jl_modelo2.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        jl_modelo2.setForeground(new java.awt.Color(0, 0, 0));
+        jl_modelo2.setText("Modelo:");
+
+        javax.swing.GroupLayout jp_ConsolasEstacionariasLayout = new javax.swing.GroupLayout(jp_ConsolasEstacionarias);
+        jp_ConsolasEstacionarias.setLayout(jp_ConsolasEstacionariasLayout);
+        jp_ConsolasEstacionariasLayout.setHorizontalGroup(
+            jp_ConsolasEstacionariasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_ConsolasEstacionariasLayout.createSequentialGroup()
+                .addGroup(jp_ConsolasEstacionariasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jp_ConsolasEstacionariasLayout.createSequentialGroup()
+                        .addGap(129, 129, 129)
+                        .addComponent(jb_AgregarEstacionaria, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jp_ConsolasEstacionariasLayout.createSequentialGroup()
+                        .addGap(65, 65, 65)
+                        .addGroup(jp_ConsolasEstacionariasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jp_ConsolasEstacionariasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(jp_ConsolasEstacionariasLayout.createSequentialGroup()
+                                    .addComponent(jl_modelo2)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jt_Modelo2, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jp_ConsolasEstacionariasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jp_ConsolasEstacionariasLayout.createSequentialGroup()
+                                        .addComponent(jl_precio2)
+                                        .addGap(71, 71, 71)
+                                        .addComponent(jt_Precio2, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jp_ConsolasEstacionariasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(jp_ConsolasEstacionariasLayout.createSequentialGroup()
+                                            .addComponent(jl_años2)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jt_Años2, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_ConsolasEstacionariasLayout.createSequentialGroup()
+                                            .addComponent(jl_fab2)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jt_Fabricante2, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(jp_ConsolasEstacionariasLayout.createSequentialGroup()
+                                            .addComponent(jl_Id2)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(jt_Identificacion2, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addGroup(jp_ConsolasEstacionariasLayout.createSequentialGroup()
+                                .addGap(19, 19, 19)
+                                .addComponent(jLabel2))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_ConsolasEstacionariasLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jp_ConsolasEstacionariasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(jp_ConsolasEstacionariasLayout.createSequentialGroup()
+                                .addComponent(jl_tipoConexion)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jt_tipoConexion, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jp_ConsolasEstacionariasLayout.createSequentialGroup()
+                                .addComponent(jl_Almacenamiento)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jt_Almacenamiento, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jp_ConsolasEstacionariasLayout.createSequentialGroup()
+                                .addComponent(jl_numControles)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jt_numControles, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(26, 26, 26)))
+                .addContainerGap(64, Short.MAX_VALUE))
+        );
+        jp_ConsolasEstacionariasLayout.setVerticalGroup(
+            jp_ConsolasEstacionariasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_ConsolasEstacionariasLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jp_ConsolasEstacionariasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jl_Id2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jt_Identificacion2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jp_ConsolasEstacionariasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jl_fab2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jt_Fabricante2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jp_ConsolasEstacionariasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jl_años2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jt_Años2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jp_ConsolasEstacionariasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jl_precio2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jt_Precio2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jp_ConsolasEstacionariasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jl_modelo2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jt_Modelo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jp_ConsolasEstacionariasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jl_numControles, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jt_numControles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jp_ConsolasEstacionariasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jl_Almacenamiento, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jt_Almacenamiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jp_ConsolasEstacionariasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jl_tipoConexion, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jt_tipoConexion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addComponent(jb_AgregarEstacionaria, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+                .addGap(52, 52, 52))
+        );
+
+        tp_CrearConsolas.addTab("Consola Estacionaria", jp_ConsolasEstacionarias);
+
+        jp_BackGround.add(tp_CrearConsolas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 460, 470));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jp_BackGround, javax.swing.GroupLayout.DEFAULT_SIZE, 1032, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jp_BackGround, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jb_AgregarPortatilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_AgregarPortatilActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) JT_Consolas.getModel();
+
+        String id = jt_Identificacion.getText().toLowerCase();
+        boolean valid = true;
+        while (valid) {
+            int idTam = id.length();
+            if (idTam == 8) {
+                int invalid = 0;
+                int contNums = 0;
+                int contLetras = 0;
+                for (int i = 0; i < 8; i++) {
+                    int pos = id.charAt(i);
+                    if (pos >= 97 && pos <= 122) {
+                        contLetras++;
+                    } else if (pos >= 48 && pos <= 57) {
+                        contNums++;
+                    } else {
+                        invalid++;
+                    }//fin else
+                }//fin for
+                if (contNums == 4) {
+                    if (contLetras == 4) {
+                        valid = false;
+                    } else {
+                        //no hay letras suficientes
+                        id = JOptionPane.showInputDialog("La Identificacion debe de tener 4 Letras y 4 Numeros \nIngrese otra Identificacion:");
+                    }
+                } else {
+                    //no hay suficientes nums
+                    id = JOptionPane.showInputDialog("La Identificacion debe de tener 4 Letras y 4 Numeros \nIngrese otra Identificacion:");
+                }
+            } else {
+                //no es tamaño valido osea pedir id de nuevo
+                id = JOptionPane.showInputDialog("Tamaño Invalido \nIngrese otra Identificacion:");
+            }//fin else
+        }//fin while
+
+        String fabricante = jt_Fabricante.getText();
+
+        int años = -1;
+        int tried = 0;
+        boolean validA = true;
+        while (validA) {
+            try {
+                if (tried == 0) {
+                    tried++;
+                    años = Integer.parseInt(jt_Años.getText());
+                } else {
+                    años = Integer.parseInt(JOptionPane.showInputDialog("Años Invalidos \nIntentelo de nuevo:"));
+                }
+            } catch (Exception e) {
+                años = -1;
+            }
+            if (años >= 0) {
+                validA = false;
+            }
+        }//fin valid
+
+        double precio = -1;
+        int triedP = 0;
+        boolean validP = true;
+        while(validP){
+            try {
+                if (triedP == 0) {
+                    triedP++;
+                    precio = Double.parseDouble(jt_Precio.getText());
+                } else {
+                    precio = Double.parseDouble(JOptionPane.showInputDialog("Precio Invalido \nIntentelo de nuevo:"));
+                }
+            } catch (Exception e) {
+                precio = -1;
+            }
+            if (precio >= 0) {
+                validP = false;
+            }
+        }//finvalidP
+        
+        String modelo = jt_Modelo.getText();
+        String tam = "";
+        if(jrb_Pequeño.isSelected()){
+            tam = "Pequeño";
+        }else if(jrb_Mediano.isSelected()){
+            tam = "Mediano";
+        }else if(jrb_Grande.isSelected()){
+            tam = "Grande";
+        }//fin tams
+        int durBat = 100;
+        try {
+            durBat = Integer.parseInt(jt_Bateria.getText());
+        } catch (Exception e) {
+        }
+        boolean estuche = false;
+        if(jrb_siEstuche.isSelected()){
+            estuche = true;
+        }else if(jrb_noEstuche.isSelected()){
+            estuche = false;
+        }
+        Portatil p = new Portatil(tam, durBat, estuche, id, fabricante, años, precio, modelo);
+        consolas.add(p);
+        jt_Identificacion.setText("");
+        jt_Fabricante.setText("");
+        jt_Años.setText("");
+        jt_Precio.setText("");
+        jt_Modelo.setText("");
+        jt_Bateria.setText("");
+        Object [] row = {id, fabricante, años, precio, modelo, "Portatil"};
+        model.addRow(row);
+        JT_Consolas.setModel(model);
+        JOptionPane.showMessageDialog(this, "¡Consola Creada EXITOSAMENTE!");
+    }//GEN-LAST:event_jb_AgregarPortatilActionPerformed
+
+    private void jb_AgregarEstacionariaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_AgregarEstacionariaActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) JT_Consolas.getModel();
+
+        String id = jt_Identificacion.getText().toLowerCase();
+        boolean valid = true;
+        while (valid) {
+            int idTam = id.length();
+            if (idTam == 8) {
+                int invalid = 0;
+                int contNums = 0;
+                int contLetras = 0;
+                for (int i = 0; i < 8; i++) {
+                    int pos = id.charAt(i);
+                    if (pos >= 97 && pos <= 122) {
+                        contLetras++;
+                    } else if (pos >= 48 && pos <= 57) {
+                        contNums++;
+                    } else {
+                        invalid++;
+                    }//fin else
+                }//fin for
+                if (contNums == 4) {
+                    if (contLetras == 4) {
+                        valid = false;
+                    } else {
+                        //no hay letras suficientes
+                        id = JOptionPane.showInputDialog("La Identificacion debe de tener 4 Letras y 4 Numeros \nIngrese otra Identificacion:");
+                    }
+                } else {
+                    //no hay suficientes nums
+                    id = JOptionPane.showInputDialog("La Identificacion debe de tener 4 Letras y 4 Numeros \nIngrese otra Identificacion:");
+                }
+            } else {
+                //no es tamaño valido osea pedir id de nuevo
+                id = JOptionPane.showInputDialog("Tamaño Invalido \nIngrese otra Identificacion:");
+            }//fin else
+        }//fin while
+
+        String fabricante = jt_Fabricante.getText();
+
+        int años = -1;
+        int tried = 0;
+        boolean validA = true;
+        while (validA) {
+            try {
+                if (tried == 0) {
+                    tried++;
+                    años = Integer.parseInt(jt_Años.getText());
+                } else {
+                    años = Integer.parseInt(JOptionPane.showInputDialog("Años Invalidos \nIntentelo de nuevo:"));
+                }
+            } catch (Exception e) {
+                años = -1;
+            }
+            if (años >= 0) {
+                validA = false;
+            }
+        }//fin valid
+
+        double precio = -1;
+        int triedP = 0;
+        boolean validP = true;
+        while(validP){
+            try {
+                if (triedP == 0) {
+                    triedP++;
+                    precio = Double.parseDouble(jt_Precio.getText());
+                } else {
+                    precio = Double.parseDouble(JOptionPane.showInputDialog("Precio Invalido \nIntentelo de nuevo:"));
+                }
+            } catch (Exception e) {
+                precio = -1;
+            }
+            if (precio >= 0) {
+                validP = false;
+            }
+        }//finvalidP
+        
+        String modelo = jt_Modelo.getText();
+    }//GEN-LAST:event_jb_AgregarEstacionariaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -76,7 +686,54 @@ public class Lab6P2_DiegoVasquez extends javax.swing.JFrame {
             }
         });
     }
-
+    ArrayList<Consola> consolas = new ArrayList();
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable JT_Consolas;
+    private javax.swing.ButtonGroup bg_estuche;
+    private javax.swing.ButtonGroup bg_tamaño;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton jb_AgregarEstacionaria;
+    private javax.swing.JButton jb_AgregarPortatil;
+    private javax.swing.JLabel jl_Almacenamiento;
+    private javax.swing.JLabel jl_Id;
+    private javax.swing.JLabel jl_Id2;
+    private javax.swing.JLabel jl_años;
+    private javax.swing.JLabel jl_años2;
+    private javax.swing.JLabel jl_bateria;
+    private javax.swing.JLabel jl_estuche;
+    private javax.swing.JLabel jl_fab;
+    private javax.swing.JLabel jl_fab2;
+    private javax.swing.JLabel jl_modelo;
+    private javax.swing.JLabel jl_modelo2;
+    private javax.swing.JLabel jl_numControles;
+    private javax.swing.JLabel jl_precio;
+    private javax.swing.JLabel jl_precio2;
+    private javax.swing.JLabel jl_tam;
+    private javax.swing.JLabel jl_tipoConexion;
+    private javax.swing.JPanel jp_BackGround;
+    private javax.swing.JPanel jp_ConsolasEstacionarias;
+    private javax.swing.JPanel jp_ConsolasPortatiles;
+    private javax.swing.JRadioButton jrb_Grande;
+    private javax.swing.JRadioButton jrb_Mediano;
+    private javax.swing.JRadioButton jrb_Pequeño;
+    private javax.swing.JRadioButton jrb_noEstuche;
+    private javax.swing.JRadioButton jrb_siEstuche;
+    private javax.swing.JTextField jt_Almacenamiento;
+    private javax.swing.JTextField jt_Años;
+    private javax.swing.JTextField jt_Años2;
+    private javax.swing.JTextField jt_Bateria;
+    private javax.swing.JTextField jt_Fabricante;
+    private javax.swing.JTextField jt_Fabricante2;
+    private javax.swing.JTextField jt_Identificacion;
+    private javax.swing.JTextField jt_Identificacion2;
+    private javax.swing.JTextField jt_Modelo;
+    private javax.swing.JTextField jt_Modelo2;
+    private javax.swing.JTextField jt_Precio;
+    private javax.swing.JTextField jt_Precio2;
+    private javax.swing.JTextField jt_numControles;
+    private javax.swing.JTextField jt_tipoConexion;
+    private javax.swing.JScrollPane sp_tableConsolas;
+    private javax.swing.JTabbedPane tp_CrearConsolas;
     // End of variables declaration//GEN-END:variables
 }
