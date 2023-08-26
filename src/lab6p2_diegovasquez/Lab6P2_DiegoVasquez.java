@@ -1126,17 +1126,22 @@ public class Lab6P2_DiegoVasquez extends javax.swing.JFrame {
         JL_Juegos.setModel(new DefaultListModel());
         jScrollPane1.setViewportView(JL_Juegos);
 
-        jp_BackGround.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 30, 180, 400));
+        jp_BackGround.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 30, 180, 400));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jp_BackGround, javax.swing.GroupLayout.DEFAULT_SIZE, 1322, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jp_BackGround, javax.swing.GroupLayout.DEFAULT_SIZE, 1249, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jp_BackGround, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jp_BackGround, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -1645,6 +1650,7 @@ public class Lab6P2_DiegoVasquez extends javax.swing.JFrame {
     private void jm_ListarJuegosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jm_ListarJuegosActionPerformed
         // TODO add your handling code here:
         DefaultListModel modelo = (DefaultListModel)JL_Juegos.getModel();
+        modelo.removeAllElements();
         int pos = JT_Consolas.getSelectedRow();
         for (int i = 0; i < consolas.get(pos).getJuegos().size(); i++) {
             Juego j = consolas.get(pos).getJuegos().get(i);
@@ -1686,6 +1692,11 @@ public class Lab6P2_DiegoVasquez extends javax.swing.JFrame {
             ((Estacionaria)consolas.get(pos)).setJuegos(juegos);
         }
         JD_CrearJuego.dispose();
+        jt_JDesc.setText("");
+        jt_JNombre.setText("");
+        jt_JPrecio.setText("");
+        jt_JcantDisp.setText("");
+        
         JOptionPane.showMessageDialog(this, "Juego Agregado Exitosamente!");
     }//GEN-LAST:event_jb_CrearJuegoActionPerformed
 
