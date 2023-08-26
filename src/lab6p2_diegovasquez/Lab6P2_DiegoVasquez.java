@@ -5,6 +5,7 @@
 package lab6p2_diegovasquez;
 
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -88,6 +89,30 @@ public class Lab6P2_DiegoVasquez extends javax.swing.JFrame {
         bg_ModEstuche = new javax.swing.ButtonGroup();
         JD_CrearJuego = new javax.swing.JDialog();
         jPanel1 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jl_Jnom = new javax.swing.JLabel();
+        jt_JNombre = new javax.swing.JTextField();
+        jl_Jnom1 = new javax.swing.JLabel();
+        jt_JDesc = new javax.swing.JTextField();
+        jl_Jfecha = new javax.swing.JLabel();
+        JDA_fechaLanzamiento = new com.toedter.calendar.JDateChooser();
+        jl_Jprecio = new javax.swing.JLabel();
+        jt_JPrecio = new javax.swing.JTextField();
+        jl_Jestado = new javax.swing.JLabel();
+        jrb_nuevo = new javax.swing.JRadioButton();
+        jrb_usado = new javax.swing.JRadioButton();
+        jl_Jrentable = new javax.swing.JLabel();
+        jrb_rentSi = new javax.swing.JRadioButton();
+        jrb_rentNo = new javax.swing.JRadioButton();
+        jl_Jrentable1 = new javax.swing.JLabel();
+        jrb_agregadoSi = new javax.swing.JRadioButton();
+        jrb_agregadono = new javax.swing.JRadioButton();
+        jl_JcantDisp = new javax.swing.JLabel();
+        jt_JcantDisp = new javax.swing.JTextField();
+        jb_CrearJuego = new javax.swing.JButton();
+        bg_Estado = new javax.swing.ButtonGroup();
+        bg_Rentable = new javax.swing.ButtonGroup();
+        bg_DLC = new javax.swing.ButtonGroup();
         jp_BackGround = new javax.swing.JPanel();
         sp_tableConsolas = new javax.swing.JScrollPane();
         JT_Consolas = new javax.swing.JTable();
@@ -155,6 +180,11 @@ public class Lab6P2_DiegoVasquez extends javax.swing.JFrame {
         jpm_MenuCrud.add(jSeparator2);
 
         jm_Juegos.setText("Juegos");
+        jm_Juegos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jm_JuegosActionPerformed(evt);
+            }
+        });
         jpm_MenuCrud.add(jm_Juegos);
 
         jm_ListarJuegos.setText("Listar Juegos");
@@ -530,15 +560,181 @@ public class Lab6P2_DiegoVasquez extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 51, 51));
 
+        jLabel5.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Crear Juego");
+
+        jl_Jnom.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        jl_Jnom.setForeground(new java.awt.Color(0, 0, 0));
+        jl_Jnom.setText("Nombre:");
+
+        jl_Jnom1.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        jl_Jnom1.setForeground(new java.awt.Color(0, 0, 0));
+        jl_Jnom1.setText("Descripcion:");
+
+        jl_Jfecha.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        jl_Jfecha.setForeground(new java.awt.Color(0, 0, 0));
+        jl_Jfecha.setText("Fecha de Lanzamiento:");
+
+        jl_Jprecio.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        jl_Jprecio.setForeground(new java.awt.Color(0, 0, 0));
+        jl_Jprecio.setText("Precio:");
+
+        jl_Jestado.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        jl_Jestado.setForeground(new java.awt.Color(0, 0, 0));
+        jl_Jestado.setText("Estado:");
+
+        bg_Estado.add(jrb_nuevo);
+        jrb_nuevo.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        jrb_nuevo.setForeground(new java.awt.Color(0, 0, 0));
+        jrb_nuevo.setText("Nuevo");
+
+        bg_Estado.add(jrb_usado);
+        jrb_usado.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        jrb_usado.setForeground(new java.awt.Color(0, 0, 0));
+        jrb_usado.setText("Usado");
+
+        jl_Jrentable.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        jl_Jrentable.setForeground(new java.awt.Color(0, 0, 0));
+        jl_Jrentable.setText("Rentable:");
+
+        bg_Rentable.add(jrb_rentSi);
+        jrb_rentSi.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        jrb_rentSi.setForeground(new java.awt.Color(0, 0, 0));
+        jrb_rentSi.setText("SI");
+
+        bg_Rentable.add(jrb_rentNo);
+        jrb_rentNo.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        jrb_rentNo.setForeground(new java.awt.Color(0, 0, 0));
+        jrb_rentNo.setText("NO");
+
+        jl_Jrentable1.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        jl_Jrentable1.setForeground(new java.awt.Color(0, 0, 0));
+        jl_Jrentable1.setText("Agregado:");
+
+        bg_DLC.add(jrb_agregadoSi);
+        jrb_agregadoSi.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        jrb_agregadoSi.setForeground(new java.awt.Color(0, 0, 0));
+        jrb_agregadoSi.setText("SI");
+
+        bg_DLC.add(jrb_agregadono);
+        jrb_agregadono.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        jrb_agregadono.setForeground(new java.awt.Color(0, 0, 0));
+        jrb_agregadono.setText("NO");
+
+        jl_JcantDisp.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        jl_JcantDisp.setForeground(new java.awt.Color(0, 0, 0));
+        jl_JcantDisp.setText("Cantidad Disponible: ");
+
+        jb_CrearJuego.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        jb_CrearJuego.setForeground(new java.awt.Color(0, 0, 0));
+        jb_CrearJuego.setText("¡AGREGAR JUEGO!");
+        jb_CrearJuego.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_CrearJuegoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 623, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(158, 158, 158)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jl_Jnom, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jt_JNombre))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jl_Jestado, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jrb_nuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jl_Jrentable, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jrb_rentSi, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jl_Jrentable1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jrb_agregadoSi, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jrb_agregadono, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jrb_rentNo, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jrb_usado, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jl_JcantDisp, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jt_JcantDisp, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jl_Jprecio, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jt_JPrecio))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jl_Jnom1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jt_JDesc))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jl_Jfecha, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(JDA_fechaLanzamiento, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(242, 242, 242)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(216, 216, 216)
+                        .addComponent(jb_CrearJuego, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(171, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 508, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(9, 9, 9)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jl_Jnom, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jt_JNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jl_Jnom1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jt_JDesc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jl_Jfecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(JDA_fechaLanzamiento, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jl_Jprecio, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jt_JPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jl_Jestado, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jrb_nuevo)
+                    .addComponent(jrb_usado))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jl_Jrentable, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jrb_rentSi)
+                    .addComponent(jrb_rentNo))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jl_Jrentable1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jrb_agregadoSi)
+                    .addComponent(jrb_agregadono))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jl_JcantDisp, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jt_JcantDisp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jb_CrearJuego, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout JD_CrearJuegoLayout = new javax.swing.GroupLayout(JD_CrearJuego.getContentPane());
@@ -1457,6 +1653,50 @@ public class Lab6P2_DiegoVasquez extends javax.swing.JFrame {
         JL_Juegos.setModel(modelo);
     }//GEN-LAST:event_jm_ListarJuegosActionPerformed
 
+    private void jb_CrearJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_CrearJuegoActionPerformed
+        // TODO add your handling code here:
+        String Nombre = jt_JNombre.getText();
+        String Desc = jt_JDesc.getText();
+        Date fechaL = JDA_fechaLanzamiento.getDate();
+        double precio = Double.parseDouble(jt_JPrecio.getText());
+        boolean estado = false;
+        if(jrb_nuevo.isSelected()){
+            estado = true;
+        }
+        boolean rentable = false;
+        if(jrb_rentSi.isSelected()){
+            rentable = true;
+        }
+        boolean agregado = false;
+        if(jrb_agregadoSi.isSelected()){
+            agregado = true;
+        }
+        int cant = Integer.parseInt(jt_JcantDisp.getText());
+        
+        Juego j = new Juego(Nombre, Desc, fechaL, precio, estado, rentable, agregado, cant);
+        int pos = JT_Consolas.getSelectedRow();
+        if(consolas.get(pos)instanceof Portatil){
+            ArrayList<Juego> juegos = consolas.get(pos).getJuegos();
+            juegos.add(j);
+            ((Portatil)consolas.get(pos)).setJuegos(juegos);
+            
+        }else{
+            ArrayList<Juego> juegos = consolas.get(pos).getJuegos();
+            juegos.add(j);
+            ((Estacionaria)consolas.get(pos)).setJuegos(juegos);
+        }
+        JD_CrearJuego.dispose();
+        JOptionPane.showMessageDialog(this, "Juego Agregado Exitosamente!");
+    }//GEN-LAST:event_jb_CrearJuegoActionPerformed
+
+    private void jm_JuegosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jm_JuegosActionPerformed
+        // TODO add your handling code here:
+        JD_CrearJuego.pack();
+        JD_CrearJuego.setModal(true);
+        JD_CrearJuego.setLocationRelativeTo(null);
+        JD_CrearJuego.setVisible(true);
+    }//GEN-LAST:event_jm_JuegosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1494,25 +1734,31 @@ public class Lab6P2_DiegoVasquez extends javax.swing.JFrame {
     ArrayList<Consola> consolas = new ArrayList();
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.toedter.calendar.JDateChooser JDA_fechaLanzamiento;
     private javax.swing.JDialog JD_CrearJuego;
     private javax.swing.JDialog JD_modificarEstacionaria;
     private javax.swing.JDialog JD_modificarPortatil;
     private javax.swing.JList<String> JL_Juegos;
     private javax.swing.JTable JT_Consolas;
+    private javax.swing.ButtonGroup bg_DLC;
+    private javax.swing.ButtonGroup bg_Estado;
     private javax.swing.ButtonGroup bg_ModEstuche;
     private javax.swing.ButtonGroup bg_ModTam;
+    private javax.swing.ButtonGroup bg_Rentable;
     private javax.swing.ButtonGroup bg_estuche;
     private javax.swing.ButtonGroup bg_tamaño;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JButton jb_AgregarEstacionaria;
     private javax.swing.JButton jb_AgregarPortatil;
+    private javax.swing.JButton jb_CrearJuego;
     private javax.swing.JButton jb_MODPortatil;
     private javax.swing.JButton jb_ModEstacionaria;
     private javax.swing.JLabel jl_Almacenamiento;
@@ -1521,6 +1767,14 @@ public class Lab6P2_DiegoVasquez extends javax.swing.JFrame {
     private javax.swing.JLabel jl_Id1;
     private javax.swing.JLabel jl_Id2;
     private javax.swing.JLabel jl_Id4;
+    private javax.swing.JLabel jl_JcantDisp;
+    private javax.swing.JLabel jl_Jestado;
+    private javax.swing.JLabel jl_Jfecha;
+    private javax.swing.JLabel jl_Jnom;
+    private javax.swing.JLabel jl_Jnom1;
+    private javax.swing.JLabel jl_Jprecio;
+    private javax.swing.JLabel jl_Jrentable;
+    private javax.swing.JLabel jl_Jrentable1;
     private javax.swing.JLabel jl_años;
     private javax.swing.JLabel jl_años1;
     private javax.swing.JLabel jl_años2;
@@ -1563,10 +1817,16 @@ public class Lab6P2_DiegoVasquez extends javax.swing.JFrame {
     private javax.swing.JRadioButton jrb_Mediano1;
     private javax.swing.JRadioButton jrb_Pequeño;
     private javax.swing.JRadioButton jrb_Pequeño1;
+    private javax.swing.JRadioButton jrb_agregadoSi;
+    private javax.swing.JRadioButton jrb_agregadono;
     private javax.swing.JRadioButton jrb_noEstuche;
     private javax.swing.JRadioButton jrb_noEstuche1;
+    private javax.swing.JRadioButton jrb_nuevo;
+    private javax.swing.JRadioButton jrb_rentNo;
+    private javax.swing.JRadioButton jrb_rentSi;
     private javax.swing.JRadioButton jrb_siEstuche;
     private javax.swing.JRadioButton jrb_siEstuche1;
+    private javax.swing.JRadioButton jrb_usado;
     private javax.swing.JTextField jt_Almacenamiento;
     private javax.swing.JTextField jt_Años;
     private javax.swing.JTextField jt_Años2;
@@ -1575,6 +1835,10 @@ public class Lab6P2_DiegoVasquez extends javax.swing.JFrame {
     private javax.swing.JTextField jt_Fabricante2;
     private javax.swing.JTextField jt_Identificacion;
     private javax.swing.JTextField jt_Identificacion2;
+    private javax.swing.JTextField jt_JDesc;
+    private javax.swing.JTextField jt_JNombre;
+    private javax.swing.JTextField jt_JPrecio;
+    private javax.swing.JTextField jt_JcantDisp;
     private javax.swing.JTextField jt_ModAlmacenamiento;
     private javax.swing.JTextField jt_ModAñoP;
     private javax.swing.JTextField jt_ModAños;
