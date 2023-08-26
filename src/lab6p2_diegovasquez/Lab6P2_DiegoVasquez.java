@@ -1124,6 +1124,11 @@ public class Lab6P2_DiegoVasquez extends javax.swing.JFrame {
         jp_BackGround.add(tp_CrearConsolas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 460, 470));
 
         JL_Juegos.setModel(new DefaultListModel());
+        JL_Juegos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JL_JuegosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(JL_Juegos);
 
         jp_BackGround.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 30, 180, 400));
@@ -1707,6 +1712,15 @@ public class Lab6P2_DiegoVasquez extends javax.swing.JFrame {
         JD_CrearJuego.setLocationRelativeTo(null);
         JD_CrearJuego.setVisible(true);
     }//GEN-LAST:event_jm_JuegosActionPerformed
+
+    private void JL_JuegosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JL_JuegosMouseClicked
+        // TODO add your handling code here:+
+        DefaultListModel model = (DefaultListModel)JL_Juegos.getModel();
+        if(evt.isMetaDown()){
+           int j = JL_Juegos.getSelectedIndex();
+           
+        }
+    }//GEN-LAST:event_JL_JuegosMouseClicked
 
     /**
      * @param args the command line arguments
